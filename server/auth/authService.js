@@ -10,12 +10,12 @@ class authService {
 
     constructor() {
         this.authUser = this.authUser.bind(this);
+        this.updateToken = this.updateToken.bind(this);
     }
 
     async authUser(req, res1) {
         let {email, password} = req.body;
         dbConnect.query(`SELECT * FROM "User" WHERE email='${email}'`).then((res) => {
-            console.log(email, password);
             let resultRows = res.rows[0];
             if (!resultRows) {
                 return res1.status(400).json({"messageError": "Пользователь не был найден"});
@@ -53,7 +53,17 @@ class authService {
     }
 
     async updateToken(req, res) {
-
+        let tokenData = req.headers;
+        if (tokenData.cookie) {
+            let token = tokenData.cookie.split("=")[1];
+            try {
+                jwt.verify(token.slice(1, token.length-1), authConfig.refreshTokenKey);
+                let data = jwt.decode(token.slice(1, token.length-1));
+                return res.status(200).json(await this.createTokens(data.sub));
+            } catch {
+                return res.status(401).send("Неверный токен");
+            }
+        }
     }
 
 }

@@ -16,7 +16,6 @@ class UserController {
         dbConnection.query(`INSERT INTO "User" ${model.getColumns()} VALUES ${model.getValues()}`).then((resp) => {
             return res.status(201).send("Пользователь был создан");
         }).catch((err) => {
-            console.log(err, model.getColumns(), model.getValues());
             return res.status(400).send("Не удалось создать пользователя");
         })
     }
