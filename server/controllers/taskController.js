@@ -7,7 +7,7 @@ class TaskController {
         this.taskModel = require("../models/taskModel");
 
         this.createTask = this.createTask.bind(this);
-        this.getAllTasksByUserId = this.getAllTasksByUserId.bind(this);
+        this.getAllTasksByUser = this.getAllTasksByUser.bind(this);
         this.updateTask = this.updateTask.bind(this);
         this.deleteTask = this.deleteTask.bind(this);
     }
@@ -16,7 +16,11 @@ class TaskController {
 
     }
 
-    getAllTasksByUserId(req, res) {
+    getAllTasksByUser(req, res) {
+
+    }
+
+    getTaskById(req, res) {
 
     }
 

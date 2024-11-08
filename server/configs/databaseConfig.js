@@ -1,10 +1,10 @@
 require("dotenv").config();
 
 const databaseConfiguration = {
-    user: process.env.USER,
+    user: process.env.USERDB,
     password: process.env.PASSWORD,
     host: process.env.HOST,
-    name: process.env.DATABASE,
+    database: process.env.DATABASE,
     port: process.env.PORT
 }
 

@@ -1,9 +1,14 @@
-const dbPg = require("pg");
-const dbConfig = require("../configs/databaseConfig");
+    const dbPg = require("pg");
+    const dbConfig = require("../configs/databaseConfig");
 
-const client = new dbPg.Client(
-    dbConfig
-);
+    const client = new dbPg.Client(
+        dbConfig
+    );
 
+    client.connect().then(() => {
+        console.log("DB is connected");
+    }).catch((er) => {
+        console.log("DB is not connected");
+    })
 
-export default client;
+    module.exports = client;

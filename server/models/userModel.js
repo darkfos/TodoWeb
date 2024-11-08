@@ -1,12 +1,13 @@
 const mainModel = require("./mainModel");
 
 class UserModel extends mainModel{
-    constructor (name, email, password) {
-        this.validateNameAndPassword = this.validateNameAndPassword.bind(this);
+    constructor (name, email, hashed_password) {
+        super();
         this.name = name;
         this.email = email;
-        this.password = password;
+        this.hashed_password = hashed_password;
 
+        this.validateNameAndPassword = this.validateNameAndPassword.bind(this);
         let isValidate = this.validateNameAndPassword();
         if (!isValidate) {
             throw Error
@@ -14,7 +15,7 @@ class UserModel extends mainModel{
     }
 
     validateNameAndPassword() {
-        if (typeof this.name === "string" && this.name.length <= 120 && typeof this.password === "string") {
+        if (typeof this.name === "string" && this.name.length <= 120 && typeof this.hashed_password === "string") {
             return true
         }
         return false

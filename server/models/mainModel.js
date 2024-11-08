@@ -9,10 +9,12 @@ class MainModel {
         let arrayKeys = new Array();
 
         modelKeys.map((key) => {
-            if (typeof this[key] === "string") {
-                arrayKeys.push(`'${this[key]}'`)
-            } else {
-                arrayKeys.push(this[key]);
+            if (typeof this[key] === "function") {  } else {
+                if (typeof this[key] === "string") {
+                    arrayKeys.push(`'${this[key]}'`);
+                } else {
+                    arrayKeys.push(this[key]);
+                }
             }
         })
 
@@ -24,12 +26,14 @@ class MainModel {
         let columns = "("
 
         modelKeys.map((key) => {
-            columns += key + ", ";
+            if (typeof this[key] === "function") {  } else {
+                columns += key + ", ";
+            }
         })
-
-        return columns + ")";
+        
+        return columns.slice(0, columns.length-2) + ")";
     }
 }
 
 
-module.exports = new MainModel();
+module.exports = MainModel;

@@ -1,5 +1,5 @@
 const APIConfig = {
-    apiPort: "7899"
+    apiPort: "7899",
 }
 
 module.exports = APIConfig;
