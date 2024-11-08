@@ -20,3 +20,6 @@ class UserModel extends mainModel{
         return false
     }
 }
+
+
+module.exports = UserModel;
