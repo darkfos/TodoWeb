@@ -69,10 +69,11 @@ class TaskController {
     }
 
     deleteTask(req, res) {
-        let bodyReq = req.body;
         let tokenData = req.headers.authorization;
         let {id} = req.params;
         let checkToken = userController.checkToken(tokenData.split(" ")[1]);
+
+        if (!tokenData || checkToken === false) { return res.status(401).json({"message": "Незарегистрированный пользователь"}); }
 
         dbConnection.query(`DELETE FROM "Tasks" WHERE id=${id}`).then((r) => {
             return res.status(200).send("Задача была удалена");
