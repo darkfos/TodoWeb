@@ -5,7 +5,7 @@ import LogoTodo from "../static/image/logo.jpg";
 
 function LoginPage()  {
 
-    let navigator = useNavigate();
+    const navigator = useNavigate();
 
     return <Fragment>
         <div className="loginMenu grid grid-rows-auto gap-20 bg-todo-theme mt-[12%] w-[60%] m-[auto] rounded-lg shadow-xl pb-10">
