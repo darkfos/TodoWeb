@@ -18,7 +18,7 @@ function LoginPage()  {
                 <input type="password" placeholder="Пароль" className="rounded-r-lg p-2"/>
             </div>
             <div className="loginMenu__btns flex flex-row gap-10 m-[auto] mt-[-5%]">
-                <button className="bg-amber-500 rounded-lg text-white font-medium p-4 width-[50%]">Авторизоваться</button>
+                <button className="bg-amber-500 rounded-lg text-white font-medium p-4 width-[50%]" onClick={(e) => {navigator("/main")}}>Авторизоваться</button>
                 <button className="bg-amber-500 rounded-lg text-white font-medium p-4 width-[50%]" onClick={(e) => navigator("/registration")}>Регистрация</button>
             </div>
         </div>
