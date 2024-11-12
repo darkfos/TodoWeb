@@ -5,13 +5,7 @@ import "./static/styles/components.css";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const todoContext = React.createContext("test text");
 
 root.render(
-  <todoContext.Provider value={{userToken: null}}>
-    <ToDoApp></ToDoApp>
-  </todoContext.Provider>
+  <ToDoApp />
 );
-
-
-export default todoContext;

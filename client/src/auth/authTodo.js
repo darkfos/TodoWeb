@@ -4,7 +4,7 @@ import axios from "axios";
 class AuthService {
 
     static async registrationUser(formData) {
-        let req = await axios.post("http://localhost:7899/api/v1/auth/register", formData);
+        let req = await axios.post("http://localhost:7899/api/v1/auth/register", formData, {ContentType: "multipart/form-data"});
         if (req.status === 200) {
             return true
         } return false
@@ -18,7 +18,7 @@ class AuthService {
     }
 
     static async updateToken(token) {
-        let req = await axios.post("http://localhost:7899/api/v1/auth/updateToken", {
+        let req = await axios.post("http://localhost:7899/api/v1/auth/updateToken", {}, {
             headers: {
                 Authorization: "Bearer " + token
             }

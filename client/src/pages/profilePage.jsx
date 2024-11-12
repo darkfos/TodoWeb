@@ -5,12 +5,11 @@ import TestImage from "../static/image/logo.jpg";
 import "../static/styles/components.css";
 import CustomButton from "../components/buttons/CustomButton";
 import { useContext } from "react";
-import todoContext from "..";
+import { context } from "../context";
 
 
 function ProfilePage() {
-    const context = useContext(todoContext);
-    console.log(context);
+    const cont = useContext(context);
     return <Fragment>
         <Header />
         <br />
@@ -32,7 +31,6 @@ function ProfilePage() {
                 <div className="profileDataStat">
                     <h1 className="text-slame-600 font-black text-3xl">Статистика</h1>
                     <br />
-                    <p>Общее количество задач: </p>
                     <p>Количество активных задач: </p>
                 </div>
                 <div className="profileDataGeneralStat">
