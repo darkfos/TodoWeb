@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom"
 const GeneralBtn = ({text, onClickRef = null, onClickStat = null}) => {
     const navigator = useNavigate();
     console.log(onClickStat);
-    
+
     const closeAndRef = () => {
         onClickStat();
         navigator("/");
