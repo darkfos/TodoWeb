@@ -19,13 +19,17 @@ function LoginPage() {
         request().then((message) => {
             contextLog.setToken(message.accessToken);
             contextLog.setRefreshToken(message.refreshToken);
-            console.log(contextLog);
+            localStorage.setItem("token", message.accessToken);
+            localStorage.setItem("refreshToken", message.refreshToken);
             navigator("/main");
         }).catch((er) => {alert(er)})
     }
 
     const navigator = useNavigate();
     const contextLog = useContext(context);
+
+    // Изначальная установка localStorage
+    localStorage.clear();
 
     return <Fragment>
         <div className="loginMenu grid grid-rows-auto gap-20 bg-todo-theme mt-[12%] w-[60%] m-[auto] rounded-lg shadow-xl pb-10">

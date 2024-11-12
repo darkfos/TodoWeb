@@ -13,11 +13,10 @@ import { context } from "./context";
 
 const ToDoApp = () => {
 
-    const [token, setToken] = useState(null);
-    const [refreshToken, setRefreshToken] = useState(null);
+    const [token, setToken] = useState(localStorage.getItem("token"));
+    const [refreshToken, setRefreshToken] = useState(localStorage.getItem("refreshToken"));
     const cont = useContext(context);
 
-    console.log(cont, token, refreshToken);
     return (
         <context.Provider value={{token, setToken, refreshToken, setRefreshToken}}>
             <BrowserRouter>
