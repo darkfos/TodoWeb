@@ -5,6 +5,7 @@ import Header from "../components/header/HeaderComponent";
 import Main1 from "../static/image/main1.jpg";
 import ListImg from "../static/image/list.svg";
 import ToDoBack from "../static/image/6256223.jpg";
+import FooterComponent from "../components/footer/FooterComponent";
 
 
 function MainPage() {
@@ -59,6 +60,10 @@ function MainPage() {
                 </div>
             </section>
         </div>
+        <br />
+        <br />
+        <br />
+        <FooterComponent/>
     </Fragment>
 }
 
