@@ -4,9 +4,13 @@ import FooterComponent from "../components/footer/FooterComponent";
 import TestImage from "../static/image/logo.jpg";
 import "../static/styles/components.css";
 import CustomButton from "../components/buttons/CustomButton";
+import { useContext } from "react";
+import todoContext from "..";
 
 
 function ProfilePage() {
+    const context = useContext(todoContext);
+    console.log(context);
     return <Fragment>
         <Header />
         <br />
