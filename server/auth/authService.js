@@ -34,15 +34,23 @@ class authService {
     }
     
     async registerUser(req, res) {
-        let body = req.body;
-        let bodyVal = Object.values(req.body);
-        let newUser = new userModel(...bodyVal);
-        if (!newUser) {
-            return res.status(400).json({"messageError": "Не верные данные"})
-        } else {
-            let oldpass = body.password;
-            newUser.hashed_password = await cryptModule.hashedPassword(body.password);
-            userController.createUser(newUser, req, res);
+        try {
+            let fileData = req.file;
+            let body = req.body;
+            let bodyVal = Object.values(req.body);
+            let dateNow = new Date();
+            bodyVal.push(String(dateNow.getDate()+dateNow.getMilliseconds())+fileData.path);
+            let newUser = new userModel(...bodyVal);
+            if (!newUser) {
+                return res.status(400).json({"messageError": "Не верные данные"})
+            } else {
+                let oldpass = body.password;
+                newUser.hashed_password = await cryptModule.hashedPassword(body.password);
+                userController.createUser(newUser, req, res);
+            } 
+        } catch (er) {
+            console.log(er)
+            res.status(400).send("Не удалось создать пользователя");
         }
     }
 
