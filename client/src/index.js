@@ -6,6 +6,9 @@ import RegPage from './pages/regPage';
 import MainPage from './pages/mainPage';
 import ProfilePage from './pages/profilePage';
 import TasksPage from './pages/tasksPage';
+import createTaskPage from "./pages/task/createTaskPage";
+import updateTaskPage from "./pages/task/updateTaskPage";
+import ModalWindow from './components/modal/modalOtherPath';
 import "./static/styles/components.css";
 
 
@@ -19,6 +22,9 @@ root.render(
         <Route path="/main" element={<MainPage />}></Route>
         <Route path="/profile" element={<ProfilePage />}></Route>
         <Route path="/tasks" element={<TasksPage />}></Route>
+        <Route path="/create_task" element={<createTaskPage />}></Route>
+        <Route path="/update_task" element={<updateTaskPage />}></Route>
+        <Route path="/*" element={<ModalWindow></ModalWindow>}></Route>
       </Routes> 
     </BrowserRouter>
 );
