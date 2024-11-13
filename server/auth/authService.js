@@ -38,8 +38,7 @@ class authService {
             let fileData = req.file;
             let body = req.body;
             let bodyVal = Object.values(req.body);
-            let dateNow = new Date();
-            bodyVal.push(String(dateNow.getDate()+dateNow.getMilliseconds())+fileData.path);
+            bodyVal.push(fileData.filename);
             let newUser = new userModel(...bodyVal);
             if (!newUser) {
                 return res.status(400).json({"messageError": "Не верные данные"})
@@ -61,16 +60,17 @@ class authService {
     }
 
     async updateToken(req, res) {
-        let tokenData = req.headers;
-        if (tokenData.cookie) {
-            let token = tokenData.cookie.split("=")[1];
+        const tokenDataCookie = req.params;
+        if (tokenDataCookie.refreshToken) {
             try {
-                jwt.verify(token.slice(1, token.length-1), authConfig.refreshTokenKey);
-                let data = jwt.decode(token.slice(1, token.length-1));
+                jwt.verify(tokenDataCookie.refreshToken, authConfig.refreshTokenKey);
+                let data = jwt.decode(tokenDataCookie.refreshToken);
                 return res.status(200).json(await this.createTokens(data.sub));
             } catch {
                 return res.status(401).send("Неверный токен");
             }
+        } else {
+            return res.status(400).send("Не найден токен")
         }
     }
 }

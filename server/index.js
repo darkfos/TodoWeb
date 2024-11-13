@@ -1,5 +1,6 @@
 const expressApp = require("express");
 const apiConfig = require("./configs/apiConfig");
+const corsPolitics = require("cors");
 
 
 // Router's
@@ -13,6 +14,13 @@ const taskRouter = require("./routers/taskRouter");
  */
 function startApplication() {
     const app = expressApp();
+    app.use(corsPolitics(
+        {
+            origin: "http://localhost:3000",
+            optionsSuccessStatus: 200,
+            credentials: true
+        }
+    ));
 
     app.use(expressApp.json());
     app.use("/api/v1/auth", authRouter);

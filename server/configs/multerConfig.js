@@ -6,7 +6,7 @@ multer = multer({storage: multer.diskStorage(
             cb(null, '/home/rias/Desktop/TodoWeb/client/src/static/image');
         },
         filename: (req, file, cb) => {
-            cb(null, file.filename + "-" + Date.now());
+            cb(null, Date.now() + "-" + file.originalname);
         }
     }
 )})

@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import "../static/styles/component-t.css";
 import "../static/styles/components.css";
 import Header from "../components/header/HeaderComponent";
@@ -6,10 +6,10 @@ import Main1 from "../static/image/main1.jpg";
 import ListImg from "../static/image/list.svg";
 import ToDoBack from "../static/image/6256223.jpg";
 import FooterComponent from "../components/footer/FooterComponent";
+import { context } from "../context";
 
 
 function MainPage() {
-
     return <Fragment>
         <Header />
         <br />

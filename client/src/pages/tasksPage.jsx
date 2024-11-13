@@ -23,6 +23,11 @@ function TasksPage() {
         </div>
         <br />
         <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <FooterComponent />
     </Fragment>
 }
