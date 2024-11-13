@@ -8,6 +8,7 @@ import { useContext } from "react";
 import { context } from "../context";
 import TaskToDo from "../auth/taskTodo";
 import { useNavigate } from "react-router-dom";
+import ImageSpin from "../static/image/spin.png";
 
 
 function TasksPage() {
@@ -51,6 +52,16 @@ function TasksPage() {
                 <FooterComponent />
             </Fragment>
         )
+    } else {
+        return <Fragment>
+        <Header />
+        <br/>
+        <br/>
+        <img src={ImageSpin} class="animate-spin m-[auto] w-[100px]" viewBox="0 0 24 24" />
+        <br/>
+        <br/>
+        <FooterComponent />
+    </Fragment>;
     }
 }
 

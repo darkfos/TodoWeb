@@ -1,7 +1,6 @@
 import { Fragment, useState, useEffect } from "react";
 import Header from "../components/header/HeaderComponent";
 import FooterComponent from "../components/footer/FooterComponent";
-import TestImage from "../static/image/logo.jpg";
 import "../static/styles/components.css";
 import CustomButton from "../components/buttons/CustomButton";
 import { useContext } from "react";
@@ -10,6 +9,7 @@ import UserTodo from "../auth/userTodo";
 import { useNavigate } from "react-router-dom";
 import ProfModal from "../components/modal/modalProfile";
 import UpdateModal from "../components/modal/modalUpdatePassword";
+import ImageSpin from "../static/image/spin.png";
 
 
 function ProfilePage() {
@@ -40,7 +40,15 @@ function ProfilePage() {
     }, [cont.token]);
 
     if (!userData) {
-        return null;
+        return <Fragment>
+            <Header />
+            <br/>
+            <br/>
+            <img src={ImageSpin} class="animate-spin m-[auto] w-[100px]" viewBox="0 0 24 24" />
+            <br/>
+            <br/>
+            <FooterComponent />
+        </Fragment>;
     }
 
 

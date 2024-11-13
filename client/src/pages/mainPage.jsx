@@ -11,8 +11,6 @@ import { useLocation } from "react-router-dom";
 
 function MainPage() {
 
-    const location = useLocation();
-
     return <Fragment>
         <Header />
         <br />
