@@ -25,9 +25,10 @@ class TaskController {
         
         let newTask = new TaskModel(...Object.values(bodyTask));
         newTask.id_user=checkToken.sub;
+        console.log(newTask.getColumns(), newTask.getValues());
         dbConnection.query(`INSERT INTO "Tasks" ${newTask.getColumns()} VALUES ${newTask.getValues()}`).then((r) => {
             return res.status(201).json({"message": "Задача была успешно создана"})
-        }).catch((e) => { res.status(400).send("Не удалось создать задачу") })
+        }).catch((e) => { console.log(e); res.status(400).send("Не удалось создать задачу") })
     }
 
     getAllTasksByUser(req, res) {

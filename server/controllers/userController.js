@@ -31,13 +31,18 @@ class UserController {
         if (!token && checkToken === false) {
             return res.status(401).json({"message": "Незарегистрированный пользователь"});
         }
-        dbConnection.query(`SELECT * FROM "User" WHERE id=${checkToken.sub}`).then((r) => {
+        dbConnection.query(`SELECT u."name", u."email", u."date_reg", u."date_upd", u."img_url", COUNT(t.id) FROM "User" AS u LEFT JOIN "Tasks" AS t ON t."id_user" = u."id" WHERE u."id"=${checkToken.sub} GROUP BY u."id"`).then((r) => {
             let result = r.rows[0];
+
             return res.status(200).json({
                 name: result.name,
-                email: result.email
+                email: result.email,
+                date_reg: result.date_reg,
+                date_upd: result.date_upd,
+                tasksCount: result.count,
+                img_url: result.img_url
             })
-        }).catch((e) => { return res.status(400).send("Пользователь не был найден") })
+        }).catch((e) => { console.log(e); return res.status(400).send("Пользователь не был найден") })
     }
 
     updatePassword(req, res) {
