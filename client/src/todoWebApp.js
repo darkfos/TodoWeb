@@ -2,8 +2,8 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import RegPage from "./pages/regPage";
 import LoginPage from "./pages/loginPage";
 import ProfilePage from "./pages/profilePage";
-import createTaskPage from "./pages/task/createTaskPage";
-import updateTaskPage from "./pages/task/updateTaskPage";
+import CreateTaskPage from "./pages/task/createTaskPage";
+import UpdateTaskPage from "./pages/task/updateTaskPage";
 import TasksPage from "./pages/tasksPage";
 import ModalWindow from "./components/modal/modalOtherPath";
 import MainPage from "./pages/mainPage";
@@ -26,8 +26,8 @@ const ToDoApp = () => {
                     <Route path="/main" element={token ? <MainPage /> : <Navigate to="/" />}></Route>
                     <Route path="/profile" element={token ? <ProfilePage /> : <Navigate to="/" />}></Route>
                     <Route path="/tasks" element={token ? <TasksPage />: <Navigate to="/" />}></Route>
-                    <Route path="/create_task" element={token ? <createTaskPage /> : <Navigate to="/" />}></Route>
-                    <Route path="/update_task" element={token ? <updateTaskPage /> : <Navigate to="/" />}></Route>
+                    <Route path="/create_task" element={token ? <CreateTaskPage /> : <Navigate to="/" />}></Route>
+                    <Route path="/update_task/:id" element={token ? <UpdateTaskPage /> : <Navigate to="/" />}></Route>
                     <Route path="/*" element={<ModalWindow></ModalWindow>}></Route>
                 </Routes> 
             </BrowserRouter>

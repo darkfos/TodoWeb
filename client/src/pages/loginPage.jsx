@@ -42,8 +42,11 @@ function LoginPage() {
                 <input type="password" placeholder="Пароль" className="rounded-r-lg p-2" id="pass"/>
             </div>
             <div className="loginMenu__btns flex flex-row gap-10 m-[auto] mt-[-5%]">
-                <button className="bg-amber-500 rounded-lg text-white font-medium p-4 width-[50%]" onClick={loginAuth}>Авторизоваться</button>
-                <button className="bg-amber-500 rounded-lg text-white font-medium p-4 width-[50%]" onClick={(e) => navigator("/registration")}>Регистрация</button>
+                <button className="transition ease-in-out delay-150 bg-amber-500 hover:-translate-y-1 hover:text-white hover:scale-110 hover:bg-indigo-500 duration-300 ... bg-amber-500 rounded-lg text-white font-medium p-4 width-[50%]" onClick={loginAuth} onMouseEnter={(e) => {
+                }} onMouseLeave={(e) => {
+                    e.target.classList.remove("animate-pulse")
+                }}>Авторизоваться</button>
+                <button className="transition ease-in-out delay-150 bg-amber-500 hover:-translate-y-1 hover:text-white hover:scale-110 hover:bg-indigo-500 duration-300 ... bg-amber-500 rounded-lg text-white font-medium p-4 width-[50%]" onClick={(e) => navigator("/registration")}>Регистрация</button>
             </div>
         </div>
     </Fragment>

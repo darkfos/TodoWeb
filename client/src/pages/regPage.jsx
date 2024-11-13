@@ -45,10 +45,10 @@ function RegPage() {
                 <input type="file" placeholder="Фотография" className="rounded-r-lg p-2" id="avatar"/>
             </div>
             <div className="loginMenu__btns flex flex-row gap-5 m-[auto] mt-[-5%]">
-                <button className="bg-red-800 rounded-lg text-white font-medium p-4" onClick={(e) => navigator("/")}>
+                <button className="transition ease-in-out delay-150 bg-rose-500 hover:-translate-y-1 hover:scale-110 hover:bg-rose-800 duration-300 rounded-lg text-white font-medium p-4" onClick={(e) => navigator("/")}>
                     &lt;
                 </button>
-                <button className="bg-amber-500 rounded-lg text-white font-medium p-2" onClick={RegistrationAuth}>Зарегистрироваться</button>
+                <button className="transition ease-in-out delay-150 bg-amber-500 hover:-translate-y-1 hover:text-white hover:scale-110 hover:bg-indigo-500 duration-300 rounded-lg text-white font-medium p-2" onClick={RegistrationAuth}>Зарегистрироваться</button>
             </div>
         </div>
 </Fragment>
