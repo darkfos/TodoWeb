@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@font-face {
+    font-family: "general-todo";
+    src: url("../fonts/Fjalla_One/FjallaOne-Regular.ttf");
+}
+
+* {
+    font-family: "general-todo";
+}

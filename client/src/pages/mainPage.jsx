@@ -6,10 +6,13 @@ import Main1 from "../static/image/main1.jpg";
 import ListImg from "../static/image/list.svg";
 import ToDoBack from "../static/image/6256223.jpg";
 import FooterComponent from "../components/footer/FooterComponent";
-import { context } from "../context";
+import { useLocation } from "react-router-dom";
 
 
 function MainPage() {
+
+    const location = useLocation();
+
     return <Fragment>
         <Header />
         <br />
@@ -20,8 +23,12 @@ function MainPage() {
                     <p className="text-slate-800 font-medium">Привет! Добро пожаловать в <span className="text-todo-theme font-black text-3xl">ToDo Web</span></p>
                     <br/>
                     <div className="setion1Left__btns flex flex-row gap-5 justify-center">
-                        <button className="bg-amber-500 rounded-2xl p-3 w-[150px]">Кто мы</button>
-                        <button className="bg-amber-500 rounded-2xl p-3 w-[150px]">Контакты</button>
+                        <button className="transition ease-in-out delay-150 bg-amber-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 hover:text-white duration-300 bg-amber-500 rounded-2xl p-3 w-[150px]" onClick={(e) => {
+                            window.location.href = "https://vk.com/se_cmert";
+                        }}>Кто мы</button>
+                        <button className="transition ease-in-out delay-150 bg-amber-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 hover:text-white duration-300 bg-amber-500 rounded-2xl p-3 w-[150px]" onClick={(e) => {
+                            window.location.href = "https://vk.com/se_cmert";
+                        }}>Контакты</button>
                     </div>
                 </div>
                 <div className="section1__right">
@@ -56,7 +63,19 @@ function MainPage() {
                 </div>
                 <div className="section3__right grid grid-cols-2 gap-5 w-[80%]">
                     <input type="text" placeholder="Худший сайт!" className="rounded-3xl p-2 w-[100%]"/>
-                    <button className="bg-amber-500 rounded-3xl p-2 w-[150px]">Отправить</button>
+                    <button className="bg-amber-500 rounded-3xl p-2 w-[150px]" onMouseEnter={(e) => {
+                        e.target.classList.add("transition");
+                        e.target.classList.add("ease-in-out");
+                        e.target.classList.add("animate-bounce");
+                        e.target.classList.add("duration-1000");
+                    }} onMouseLeave={(e) => {
+                        e.target.classList.remove("transition");
+                        e.target.classList.remove("ease-in-out");
+                        e.target.classList.remove("animate-bounce");
+                        e.target.classList.remove("duration-1000");
+                    }} onClick={(e) => {
+                        alert("Нам тут всякие гадости не нужны!")
+                    }}>Отправить</button>
                 </div>
             </section>
         </div>

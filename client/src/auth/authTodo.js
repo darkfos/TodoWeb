@@ -17,14 +17,13 @@ class AuthService {
         } return false
     }
 
-    static async updateToken(token) {
-        let req = await axios.post("http://localhost:7899/api/v1/auth/updateToken", {}, {
-            headers: {
-                Authorization: "Bearer " + token
-            }
+    static async updateToken() {
+        let req = await axios.post("http://localhost:7899/api/v1/auth/updateToken/"+localStorage.getItem("refreshToken"), {}, {
         })
 
         if (req.status === 200) {
+            localStorage.setItem("token", req.data.accessToken);
+            localStorage.setItem("refreshToken", req.data.refreshToken);
             return req.data;
         } return false
     }
