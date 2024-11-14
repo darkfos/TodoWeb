@@ -29,3 +29,7 @@ $ npm start
 
 
 ## Проект
+![Страница авторизации](https://github.com/darkfos/TodoWeb/blob/main/readme/images/Screenshot%20from%202024-11-15%2001-54-52.png)
+![Главная страница](https://github.com/darkfos/TodoWeb/blob/main/readme/images/Screenshot%20from%202024-11-15%2001-55-44.png)
+![Страница задач](https://github.com/darkfos/TodoWeb/blob/main/readme/images/Screenshot%20from%202024-11-15%2002-00-16.png)
+![Страница профиля](https://github.com/darkfos/TodoWeb/blob/main/readme/images/Screenshot%20from%202024-11-15%2001-56-28.png)
